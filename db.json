@@ -26,6 +26,28 @@
       "title": "album"
     }
   ],
+  "comments": [
+    {
+      "text": "comm",
+      "username": "username",
+      "email": "email"
+    },
+    {
+      "text": "comm",
+      "username": "username",
+      "email": "email"
+    },
+    {
+      "text": "comm",
+      "username": "username",
+      "email": "email"
+    },
+    {
+      "text": "comm",
+      "username": "username",
+      "email": "email"
+    }
+  ],
   "profile": {
     "name": "name",
     "email": "email",
