@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:untitled/albums.dart';
 
 import 'models/user.dart';
 import 'posts.dart';
@@ -112,7 +113,7 @@ class _ProfileState extends State<Profile> {
           Center(child: Text('ALBUMS')),
           InkWell(
             onTap: (){
-
+              onTapAlbums();
             },
             child: SizedBox(
               height: 100,
@@ -133,5 +134,9 @@ class _ProfileState extends State<Profile> {
 
   onTapPosts() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Posts()));
+  }
+
+  onTapAlbums() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Albums()));
   }
 }

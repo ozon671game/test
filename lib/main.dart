@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:untitled/profile.dart';
 
 import 'models/user.dart';
@@ -38,15 +39,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -59,9 +51,25 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isLoaded = false;
 
   getData() async {
+    final prefs = await SharedPreferences.getInstance();
+    String? data = prefs.getString('data');
+    if(data != null){
+      List jsonData = jsonDecode(data);
+      for (var e in jsonData) {
+        usersList.add(User(
+          name: e['username'].toString(),
+          username: e['name'],
+        ));
+      }
+      setState(() {
+        isLoaded = true;
+      });
+      return;
+    }
     var url = Uri.parse('https://my-json-server.typicode.com/ozon671game/test/users');
     Response response = await get(url);
     if(response.statusCode == 200) {
+      prefs.setString('data', response.body);
       List jsonData = jsonDecode(response.body);
       print(jsonData);
       for (var e in jsonData) {
