@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:untitled/profile.dart';
 
 import 'models/user.dart';
 
@@ -65,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
       print(jsonData);
       for (var e in jsonData) {
         usersList.add(User(
-            name: e['username'],
+            name: e['username'].toString(),
             username: e['name'],
         ));
       }
@@ -96,11 +97,18 @@ class _MyHomePageState extends State<MyHomePage> {
           itemCount: usersList.length,
             itemBuilder: (context, index) {
           return ListTile(
+            onTap: () {
+              onTapListTile(usersList[index].username);
+            },
             title: Text(usersList[index].username),
             subtitle: Text(usersList[index].name),
           );
         }),
       ),// This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  onTapListTile(String username) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Profile(username: username,)));
   }
 }
