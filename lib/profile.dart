@@ -16,7 +16,9 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
 
   bool isLoaded = false;
-  SingleUser? userInfo;
+  late SingleUser userInfo;
+  List posts = [];
+  List albums = [];
 
   getData() async {
     var url = Uri.parse(
@@ -32,6 +34,8 @@ class _ProfileState extends State<Profile> {
           website: jsonData['website'],
           address: jsonData['address'],
           working: jsonData['working'],);
+      var jsonPosts = jsonData['posts'];
+      print(jsonPosts);
       setState(() {
         isLoaded = true;
       });
@@ -46,12 +50,19 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
-    return !isLoaded ? CircularProgressIndicator() : Scaffold(
+    return !isLoaded ? Center(child: CircularProgressIndicator()) : Scaffold(
       appBar: AppBar(
         title: Text(widget.username),
       ),
-      body: Column(
+      body: ListView(
         children: <Widget>[
+          Text(userInfo.name),
+          Text(userInfo.email),
+          Text(userInfo.phone),
+          Text(userInfo.website),
+          Text(userInfo.working['working_name']),
+          Text(userInfo.working['bs']),
+          Text(userInfo.working['catchPhrase']),
 
         ],
       ),

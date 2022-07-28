@@ -36,7 +36,32 @@
       "working_name": "working_name",
       "bs": "bs",
       "catchPhrase": "catchPhrase "
-    }
+    },
+    "posts": [
+      {
+        "title": "title",
+        "description": "desc"
+      },
+      {
+        "title": "title",
+        "description": "desc"
+      },
+      {
+        "title": "title",
+        "description": "desc"
+      }
+    ],
+    "albums": [
+      {
+        "title": "title"
+      },
+      {
+        "title": "title"
+      },
+      {
+        "title": "title"
+      }
+    ]
   },
   "users": [
     {
