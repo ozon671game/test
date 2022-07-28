@@ -1,11 +1,50 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "hello"
+      "title": "post"
+    }
+  ],
+  "albums": [
+    {
+      "title": "album"
     }
   ],
   "profile": {
-    "name": "typicode"
-  }
+    "name": "name",
+    "email": "email",
+    "phone": "phone",
+    "website": "website",
+    "address": "address",
+    "working": {
+      "working_name": "working_name",
+      "bs": "bs",
+      "catchPhrase": "catchPhrase "
+    }
+  },
+  "users": [
+    {
+      "username": 1,
+      "name": "N"
+    },
+    {
+      "username": 1,
+      "name": "R"
+    },
+    {
+      "username": 1,
+      "name": "FF"
+    },
+    {
+      "username": 1,
+      "name": "N"
+    },
+    {
+      "username": 1,
+      "name": "N"
+    },
+    {
+      "username": 1,
+      "name": "N"
+    }
+  ]
 }
